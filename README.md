@@ -1,5 +1,3 @@
 # CSharp Snippets
 
-Repo lưu các script:
-- SpawnPoint
-- Camera Bounds
+Repo lưu các script, hok tập
