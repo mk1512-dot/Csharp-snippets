@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class VisionConeDetection : MonoBehaviour
+{
+    public Transform player;
+
+    public float viewDistance = 5f;
+    public float viewAngle = 90f;
+
+    void Update()
+    {
+        Vector2 directionToPlayer =
+            player.position - transform.position;
+
+        float distance =
+            directionToPlayer.magnitude;
+
+        if(distance > viewDistance)
+            return;
+
+        float angle =
+            Vector2.Angle(
+                transform.right,
+                directionToPlayer
+            );
+
+        if(angle <= viewAngle / 2f)
+        {
+            Debug.Log("Player In Vision Cone");
+        }
+    }
+}
