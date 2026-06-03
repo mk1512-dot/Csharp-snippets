@@ -1,0 +1,35 @@
+using UnityEngine;
+
+public class RaycastToPlayer : MonoBehaviour
+{
+    public Transform player;
+    public float detectDistance = 5f;
+
+    void Update()
+    {
+        Vector2 direction =
+            (player.position - transform.position)
+            .normalized;
+
+        RaycastHit2D hit =
+            Physics2D.Raycast(
+                transform.position,
+                direction,
+                detectDistance
+            );
+
+        if(hit.collider != null)
+        {
+            if(hit.collider.CompareTag("Player"))
+            {
+                Debug.Log("Player Visible");
+            }
+        }
+
+        Debug.DrawRay(
+            transform.position,
+            direction * detectDistance,
+            Color.green
+        );
+    }
+}
